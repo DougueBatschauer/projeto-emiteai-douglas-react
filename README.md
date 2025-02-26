@@ -6,7 +6,6 @@ Este é o frontend da aplicação, desenvolvido em **React** e servido através 
 ### **1. Pré-requisitos**
 Certifique-se de ter instalado:
 - [Docker](https://www.docker.com/get-started)
-- [Docker Compose](https://docs.docker.com/compose/install/)
 
 ### **2. Como rodar o frontend**
 1. No terminal, vá até a pasta do frontend:
