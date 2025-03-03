@@ -1,50 +1,37 @@
-# React + TypeScript + Vite
+# README
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+## Inicialização do Frontend
+Este é o frontend da aplicação, desenvolvido em **React** e servido através do **NGINX** dentro de um container Docker.
 
-Currently, two official plugins are available:
+### **1. Pré-requisitos**
+Certifique-se de ter instalado:
+- [Docker](https://www.docker.com/get-started)
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+### **2. Como rodar o frontend**
+1. No terminal, vá até a pasta do frontend:
+   ```sh
+   cd frontend
+   ```
+2. Construa a imagem Docker do frontend:
+   ```sh
+   docker build -t frontend-app .
+   ```
+3. Suba o container do frontend:
+   ```sh
+   docker run -d -p 3000:80 frontend-app
+   ```
 
-## Expanding the ESLint configuration
+### **3. Acessando a Aplicação**
+- O frontend estará disponível em: `http://localhost:3000`
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
-
-- Configure the top-level `parserOptions` property like this:
-
-```js
-export default tseslint.config({
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
+### **4. Parando o frontend**
+Para parar o container do frontend:
+```sh
+   docker stop $(docker ps -q --filter ancestor=frontend-app)
 ```
 
-- Replace `tseslint.configs.recommended` to `tseslint.configs.recommendedTypeChecked` or `tseslint.configs.strictTypeChecked`
-- Optionally add `...tseslint.configs.stylisticTypeChecked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and update the config:
-
-```js
-// eslint.config.js
-import react from 'eslint-plugin-react'
-
-export default tseslint.config({
-  // Set the react version
-  settings: { react: { version: '18.3' } },
-  plugins: {
-    // Add the react plugin
-    react,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended rules
-    ...react.configs.recommended.rules,
-    ...react.configs['jsx-runtime'].rules,
-  },
-})
-```
+### **5. Debugging e Logs**
+- Para visualizar os logs do frontend:
+  ```sh
+  docker logs -f $(docker ps -q --filter ancestor=frontend-app)
+  ```
