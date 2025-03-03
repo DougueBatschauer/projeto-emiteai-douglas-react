@@ -1,0 +1,5 @@
+services:
+  frontend:
+    image: batschauer97/projeto-emiteai-react:2.0
+    ports:
+      - "3000:80"

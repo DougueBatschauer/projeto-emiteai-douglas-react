@@ -157,11 +157,7 @@ const validCpf = async (cpf: string): Promise<boolean | Error> => {
 
 const getInfosCep = async (cep: string): Promise<ICep> => {
   try {
-    const { data } = await Api.get(`https://cors-anywhere.herokuapp.com/https://viacep.com.br/ws/${cep}/json/`, {
-      headers: {
-        'origin': 'http://localhost:3000'
-      }
-    });
+    const { data } = await Api.get(`/api/cep/get-cep/${cep}`)
     return data;
   } catch (error) {
     console.error(error);
