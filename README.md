@@ -10,15 +10,7 @@ Certifique-se de ter instalado:
 ### **2. Como rodar o frontend**
 1. No terminal, vá até a pasta do frontend:
    ```sh
-   cd frontend
-   ```
-2. Construa a imagem Docker do frontend:
-   ```sh
-   docker build -t frontend-app .
-   ```
-3. Suba o container do frontend:
-   ```sh
-   docker run -d -p 3000:80 frontend-app
+   docker-compose up -d
    ```
 
 ### **3. Acessando a Aplicação**
