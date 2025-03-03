@@ -19,11 +19,5 @@ Certifique-se de ter instalado:
 ### **4. Parando o frontend**
 Para parar o container do frontend:
 ```sh
-   docker stop $(docker ps -q --filter ancestor=frontend-app)
+   docker-compose down
 ```
-
-### **5. Debugging e Logs**
-- Para visualizar os logs do frontend:
-  ```sh
-  docker logs -f $(docker ps -q --filter ancestor=frontend-app)
-  ```
